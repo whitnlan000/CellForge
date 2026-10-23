@@ -1,0 +1,9 @@
+states {
+    off;
+    on;
+}
+
+rules {
+ !off = !on if ($ == 'off') end;
+ !on = !off if ($ == 'on') end;
+}

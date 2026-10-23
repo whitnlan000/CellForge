@@ -1,0 +1,19 @@
+states {
+	none;
+    wire_on;
+    wire_delay;
+    wire_off;
+    and;
+    or;
+    xor;
+}
+
+rules {
+   
+    !wire_off = !wire_on if (`wire_on@1 > 0) end;
+	!wire_on = !wire_delay if (True) end;
+	!wire_delay = !wire_off if (True) end;
+
+	!wire_off = !wire_on if ([y,x-1] == 'or' and ([y+1,x-2] == 'wire_on' or [y-1,x-2] == 'wire_on')) end;
+
+}
